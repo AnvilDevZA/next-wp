@@ -1,4 +1,4 @@
-export default function Card({ cardTitle, cardText, buttonText }) {
+export default function Card({ cardTitle: string, cardText: string, buttonText: string }) {
   return (
     <div className="card bg-base-100 w-96 shadow-sm border mt-6">
       <figure className="px-6 pt-6">

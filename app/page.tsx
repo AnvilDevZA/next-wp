@@ -1,6 +1,7 @@
 // Craft Imports
 import { Section, Container, Prose } from "@/components/craft";
 import Balancer from "react-wrap-balancer";
+import Card from "../components/ui/card";
 
 // Next.js Imports
 import Link from "next/link";
@@ -10,140 +11,38 @@ import { File, Pen, Tag, Diamond, User, Folder } from "lucide-react";
 import { WordPressIcon } from "@/components/icons/wordpress";
 import { NextJsIcon } from "@/components/icons/nextjs";
 
+import Hero from "../components/ui/hero";
+
 // This page is using the craft.tsx component and design system
 export default function Home() {
   return (
-    <Section>
-      <Container>
-        <ToDelete />
-      </Container>
-    </Section>
+    <>
+        <Hero />
+        <main className="max-w-6xl m-auto py-12">
+          <article className="max-w-4xl m-auto"> 
+            <h1 className="text-lg text-center mb-2 font-black">You tell us what you need, we smith it!</h1>
+            <p className="text-base">From personal websites to enterprise and organisation sites and apps, we will create the design and the development of your specifications. Anvil's designs are curated and use cutting edge technologies to deliver a fast, beautiful and unique user experience. Using a wide field of tools, libraries and frameworks and the benefit of nearly a decade of experience, Anvil can create the site or app of your dreams!</p>
+            <div className="flex flex-col justify-center items-center lg:flex-row gap-4 lg:items-stretch">
+              <Card cardTitle="Cutting-Edge Technology" cardText="We make sites and apps with cutting edge tools like React and NextJS (for web), and Tauri v2 and React Native (for mobile). We are devoted to CI/CD and will share our work via GitHub." buttonText="Learn More" />
+              <Card cardTitle="Beautiful and Fast UX/UI" cardText="We ensure every optimization is made to your project. Sites not only look good, but feel like native applications. We using anything from concatenation and minification to advanced caching to speed up performance." buttonText="Learn More" />
+              <Card cardTitle="Constant Communication" cardText="During business hours we always available via Zoom or Google Meet. We always keep our client in the loop using lcaol development servers, and GitHub ensuring clients know what the final deliverables will be." buttonText="Learn More" />
+              <Card cardTitle="Responsive Design" cardText="All our web and mobile applications are built using mobile-first responsive design with progressive enhancement to ensure they work and look beautiful, regardless of resolution or device. Our apps will compile across devices and platforms. natively" buttonText="Learn More" />
+            </div>
+          </article>
+          <article className="max-w-4xl m-auto mt-6"> 
+	    <h1 className="text-lg text-center mb-2 font-black">Latest from the Forge</h1>
+            <p className="text-base text-center">
+  	      We love to show off our work! Check out our latest projects below!
+            </p>
+	  </article>
+ 	  <article className="max-w-4xl m-auto mt-6">
+ 	    <h1 className="text-lg text-center mb-2 font-black">Shop Talk</h1>
+	    <p className="text-base text-center">
+	     Check out the latest ramblings and semi-mindful musings from us
+             about UX/UI, software development, the web, and beyond&hellip;Comments always welcome (mind your Ps and Qs though).
+	    </p>
+	  </article>
+        </main>
+    </>
   );
-}
 
-// This is just some example TSX
-const ToDelete = () => {
-  return (
-    <main className="space-y-6">
-      <Prose>
-        <h1>
-          <Balancer>Headless WordPress built with the Next.js</Balancer>
-        </h1>
-
-        <p>
-          This is <a href="https://github.com/9d8dev/next-wp">next-wp</a>,
-          created as a way to build WordPress sites with Next.js at rapid speed.
-          This starter is designed with{" "}
-          <a href="https://ui.shadcn.com">shadcn/ui</a>,{" "}
-          <a href="https://craft-ds.com">craft-ds</a>, and Tailwind CSS. Use{" "}
-          <a href="https://components.work">brijr/components</a> to build your
-          site with prebuilt components. The data fetching and typesafety is
-          handled in <code>lib/wordpress.ts</code> and{" "}
-          <code>lib/wordpress.d.ts</code>.
-        </p>
-      </Prose>
-
-      <div className="flex justify-between items-center gap-4">
-        {/* Vercel Clone Starter */}
-        <div className="flex items-center gap-3">
-          <a
-            className="h-auto block"
-            href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F9d8dev%2Fnext-wp&env=WORDPRESS_URL,WORDPRESS_HOSTNAME&envDescription=Add%20WordPress%20URL%20with%20Rest%20API%20enabled%20(ie.%20https%3A%2F%2Fwp.example.com)%20abd%20the%20hostname%20for%20Image%20rendering%20in%20Next%20JS%20(ie.%20wp.example.com)&project-name=next-wp&repository-name=next-wp&demo-title=Next%20JS%20and%20WordPress%20Starter&demo-url=https%3A%2F%2Fwp.9d8.dev"
-          >
-            {/* eslint-disable-next-line */}
-            <img
-              className="not-prose my-4"
-              src="https://vercel.com/button"
-              alt="Deploy with Vercel"
-              width={105}
-              height={32.62}
-            />
-          </a>
-          <p className="!text-sm sr-only sm:not-sr-only text-muted-foreground">
-            Deploy with Vercel in seconds.
-          </p>
-        </div>
-
-        <div className="flex gap-2 items-center">
-          <WordPressIcon className="text-foreground" width={32} height={32} />
-          <NextJsIcon className="text-foreground" width={32} height={32} />
-        </div>
-      </div>
-
-      <div className="grid md:grid-cols-3 gap-4 mt-6">
-        <Link
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/posts"
-        >
-          <Pen size={32} />
-          <span>
-            Posts{" "}
-            <span className="block text-sm text-muted-foreground">
-              All posts from your WordPress
-            </span>
-          </span>
-        </Link>
-        <Link
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/pages"
-        >
-          <File size={32} />
-          <span>
-            Pages{" "}
-            <span className="block text-sm text-muted-foreground">
-              Custom pages from your WordPress
-            </span>
-          </span>
-        </Link>
-        <Link
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/posts/authors"
-        >
-          <User size={32} />
-          <span>
-            Authors{" "}
-            <span className="block text-sm text-muted-foreground">
-              List of the authors from your WordPress
-            </span>
-          </span>
-        </Link>
-        <Link
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/posts/tags"
-        >
-          <Tag size={32} />
-          <span>
-            Tags{" "}
-            <span className="block text-sm text-muted-foreground">
-              Content by tags from your WordPress
-            </span>
-          </span>
-        </Link>
-        <Link
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="/posts/categories"
-        >
-          <Diamond size={32} />
-          <span>
-            Categories{" "}
-            <span className="block text-sm text-muted-foreground">
-              Categories from your WordPress
-            </span>
-          </span>
-        </Link>
-        <a
-          className="border h-48 bg-accent/50 rounded-lg p-4 flex flex-col justify-between hover:scale-[1.02] transition-all"
-          href="https://github.com/9d8dev/next-wp/blob/main/README.md"
-        >
-          <Folder size={32} />
-          <span>
-            Documentation{" "}
-            <span className="block text-sm text-muted-foreground">
-              How to use `next-wp`
-            </span>
-          </span>
-        </a>
-      </div>
-    </main>
-  );
-};
